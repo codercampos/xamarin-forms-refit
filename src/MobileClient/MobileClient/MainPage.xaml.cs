@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MobileClient.Shared.Models;
+using MobileClient.Shared.Services;
 using Xamarin.Forms;
 
 namespace MobileClient
@@ -15,6 +17,7 @@ namespace MobileClient
     {
         public MainPage()
         {
+            BindingContext = new MainViewModel();
             InitializeComponent();
         }
     }

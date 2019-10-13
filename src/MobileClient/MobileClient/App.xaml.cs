@@ -1,6 +1,5 @@
-﻿using System;
+﻿using MobileClient.Shared.Services;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace MobileClient
 {
@@ -9,8 +8,13 @@ namespace MobileClient
         public App()
         {
             InitializeComponent();
+            InitDependencies();
+            MainPage = new NavigationPage(new MainPage()) { BarBackgroundColor = Color.Gray, BarTextColor = Color.White };
+        }
 
-            MainPage = new MainPage();
+        private void InitDependencies()
+        {
+            DependencyService.Register<IApiFactory<ITodoService>, ApiFactory<ITodoService>>();
         }
 
         protected override void OnStart()
